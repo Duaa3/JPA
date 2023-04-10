@@ -1,12 +1,12 @@
 package com.INMHibernateJPA.JPAHibernateINM.Model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
+
 
 @Entity
 //database table name
-@Table(name = "pro_student")
-public class Student {
+@Table(name = "pro_course")
+public class Course {
     //indicating that this field serves as the primary key of the database table.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,17 +14,14 @@ public class Student {
     @Column
 
     public String name;
-    @Column
-    //used to validate that the email field conforms to a regular expression pattern
-    @Pattern(regexp="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}", message="Invalid email")
-    public String email;
-    public Student () {
+
+    public Course () {
     }
 
-    public Student(int id, String name, String email) {
+    public Course(int id, String name, String email) {
         this.id = id;
         this.name = name;
-        this.email = email;
+
     }
 
     public int getId() {
@@ -41,14 +38,6 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
 }
